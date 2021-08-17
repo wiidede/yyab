@@ -3,7 +3,6 @@
     <router-link to="/">
       Home
     </router-link>
-    <span> | </span>
     <router-link to="/about">
       About
     </router-link>
@@ -21,7 +20,6 @@ export default defineComponent({
 <style scoped>
 nav {
   display: flex;
-  gap: 1em;
-  justify-content: center;
+  flex-direction: column;
 }
 </style>

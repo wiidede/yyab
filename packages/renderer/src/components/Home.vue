@@ -1,4 +1,9 @@
 <template>
+  <img
+    alt="Vue logo"
+    src="../../assets/logo.svg"
+    width="300"
+  >
   <p>
     For a guide and recipes on how to configure / customize this project,<br>
     check out the

@@ -1,11 +1,8 @@
 <template>
-  <img
-    alt="Vue logo"
-    src="../assets/logo.svg"
-    width="300"
-  >
   <app-navigation />
-  <router-view />
+  <el-scrollbar>
+    <router-view />
+  </el-scrollbar>
 </template>
 
 <script lang="ts">
@@ -19,13 +16,27 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style lang="scss">
+body {
+  margin: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+
+  & > nav {
+
+  }
+
+  & > .el-scrollbar {
+    flex: 1;
+  }
 }
 </style>
