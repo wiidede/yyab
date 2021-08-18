@@ -5,6 +5,7 @@ dist
 thumbs.db
 
 .yarn
+.yarnrc
 
 .eslintcache
 
