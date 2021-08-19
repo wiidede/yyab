@@ -27,6 +27,9 @@ export default defineComponent({
   padding: 12px;
   box-sizing: border-box;
   min-height: 100vh;
+  font-family: baloo_2regular, sans-serif;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .setting-part {

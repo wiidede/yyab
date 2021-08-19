@@ -59,6 +59,9 @@ nav {
   font-size: 14px;
   width: 120px;
   transition: all ease .3s;
+  font-family: baloo_2regular, sans-serif;
+  user-select: none;
+  -webkit-user-drag: none;
 
   a {
     display: inline-flex;

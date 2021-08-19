@@ -1,6 +1,6 @@
 :root {
-  --el-color-white: #ffffff;
-  --el-color-black: #000000;
+  --el-color-white: var(--color-white);
+  --el-color-black: var(--color-black);
   --el-color-primary: var(--main);
   --el-color-primary-light-1: rgb(83, 168, 255);
   --el-color-primary-light-2: rgb(102, 177, 255);
@@ -27,7 +27,7 @@
   --el-color-info-light: #e9e9eb;
   --el-color-info-lighter: #f4f4f5;
   --el-text-color-primary: var(--font-color);
-  --el-text-color-regular: #606266;
+  --el-text-color-regular: var(--font-color-regular);
   --el-text-color-secondary: #909399;
   --el-text-color-placeholder: #c0c4cc;
   --el-border-color-base: #dcdfe6;
