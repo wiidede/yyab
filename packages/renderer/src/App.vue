@@ -1,8 +1,12 @@
 <template>
   <app-navigation />
-  <el-scrollbar>
-    <router-view />
-  </el-scrollbar>
+  <main>
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
+  </main>
 </template>
 
 <script lang="ts">
@@ -17,26 +21,28 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@import "./style/index";
+
 body {
   margin: 0;
+  background: var(--background);
 }
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: var(--font-color);
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   display: flex;
 
-  & > nav {
-
-  }
-
-  & > .el-scrollbar {
+  & > main {
     flex: 1;
+    background: var(--background-gray);
+    height: 100%;
+    overflow: hidden;
   }
 }
 </style>

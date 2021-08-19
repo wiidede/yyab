@@ -1,9 +1,9 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
-import Home from '/@/components/Home.vue';
 
 const routes = [
-  {path: '/', name: 'Home', component: Home},
-  {path: '/about', name: 'About', component: () => import('/@/components/About.vue')}, // Lazy load route component
+  {path: '/', name: 'Home',  component: () => import('/@/views/Home.vue')},
+  {path: '/settings', name: 'Settings', component: () => import('/@/views/Settings/index.vue')},
+  {path: '/lexicon', name: 'Lexicon', component: () => import('/@/views/Lexicon.vue')},
 ];
 
 export default createRouter({

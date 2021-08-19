@@ -1,0 +1,17 @@
+:root {
+  // color
+  --main: #FF9A76;
+  --hover: #FF9A7620;
+
+  // theme
+  --background: white;
+  --background-gray: #f8f8f8;
+  --font-color: #303133;
+}
+
+
+[data-theme="dark"] {
+  --background: #383838;
+  --background-gray: #464646;
+  --font-color: #eeeeee;
+}

@@ -2,11 +2,14 @@ import {createApp} from 'vue';
 import App from '/@/App.vue';
 import router from '/@/router';
 // 如果要使用.scss样式文件，则需要引入base.scss文件
-import 'element-plus/packages/theme-chalk/src/base.scss';
+// import 'element-plus/packages/theme-chalk/src/base.scss';
 
 import {
   ElButton,
   ElSelect,
+  ElRadio,
+  ElRadioButton,
+  ElRadioGroup,
   ElScrollbar,
   ElLoading,
   ElMessage,
@@ -17,6 +20,9 @@ import {
 const components = [
   ElButton,
   ElSelect,
+  ElRadio,
+  ElRadioButton,
+  ElRadioGroup,
   ElScrollbar,
 ];
 
