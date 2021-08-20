@@ -1,17 +1,18 @@
 <template>
   <nav :class="{collapse: isCollapse}">
-    <router-link
+    <div
       v-for="(nav, index) in navs"
       :key="`nav${index}`"
-      :to="nav.path"
+      class="nav-item"
       :class="{active: nav.active}"
+      @click="navTo(nav.path)"
     >
       <span
         class="iconfont"
         :class="nav.active ? nav.iconActive : nav.icon"
       />
       <span v-show="!isCollapse">{{ nav.name }}</span>
-    </router-link>
+    </div>
     <div
       class="collapse-button"
       @click="handleCollapse"
@@ -41,13 +42,20 @@ export default defineComponent({
     const handleCollapse = () => {
       isCollapse.value = !isCollapse.value;
     };
+
     const router = useRouter();
+    const navTo = (path: string) => {
+      router.push(path);
+    };
     watchEffect(() => {
       navs.forEach(nav => {
-        nav.active = router.currentRoute.value.path === nav.path;
+        nav.active = nav.path === '/' ?
+          router.currentRoute.value.path === nav.path :
+          router.currentRoute.value.path.startsWith(nav.path);
       });
     });
-    return {isCollapse, navs, handleCollapse};
+
+    return {isCollapse, navs, handleCollapse, navTo};
   },
 });
 </script>
@@ -56,19 +64,17 @@ export default defineComponent({
 nav {
   display: flex;
   flex-direction: column;
-  font-size: 14px;
+  font-size: 16px;
   width: 120px;
   transition: all ease .3s;
   font-family: baloo_2regular, sans-serif;
   user-select: none;
-  -webkit-user-drag: none;
 
-  a {
+  .nav-item {
     display: inline-flex;
     align-items: center;
     width: 100%;
-    color: inherit;
-    text-decoration: none;
+    cursor: pointer;
     transition: all ease .3s;
     padding: 8px 0;
 
@@ -92,6 +98,7 @@ nav {
     display: flex;
     align-items: center;
     cursor: pointer;
+    transition: all ease .3s;
 
     &:hover {
       color: var(--main);

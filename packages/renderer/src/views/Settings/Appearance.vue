@@ -58,34 +58,22 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.setting-item {
-  padding: 0 16px;
-  min-height: 50px;
+.color-list {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+}
 
-  &:hover {
-    background: var(--hover);
-  }
+.color {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  cursor: pointer;
+  margin: 0 8px;
+  transition: all ease .3s;
 
-  .color-list {
-    display: flex;
-    align-items: center;
-  }
-
-  .color {
-    width: 24px;
-    height: 24px;
-    border-radius: 100%;
-    cursor: pointer;
-    margin: 0 8px;
-    transition: all ease .3s;
-
-    &.active {
-      width: 32px;
-      height: 32px;
-    }
+  &.active {
+    width: 32px;
+    height: 32px;
   }
 }
 </style>

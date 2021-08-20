@@ -2,22 +2,36 @@
   <div class="view-settings">
     <el-scrollbar>
       <h1>Settings</h1>
-      <div class="setting-part">
-        <h4>Appearance</h4>
-        <Appearance />
+      <div
+        v-for="setting in settings"
+        :key="setting.name"
+        class="setting-part"
+      >
+        <h4>{{ setting.name }}</h4>
+        <component :is="setting.component" />
       </div>
     </el-scrollbar>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import {defineComponent} from 'vue';
 import Appearance from './Appearance.vue';
+import Application from './Application.vue';
 
 export default defineComponent({
   name: 'Settings',
   components: {
     Appearance,
+    Application,
+  },
+  setup() {
+    const settings = [
+      {name: 'Appearance', component: Appearance},
+      {name: 'Application', component: Application},
+    ];
+
+    return {settings};
   },
 });
 </script>
@@ -28,17 +42,55 @@ export default defineComponent({
   box-sizing: border-box;
   min-height: 100vh;
   font-family: baloo_2regular, sans-serif;
+  font-size: 18px;
   user-select: none;
   -webkit-user-drag: none;
+
+  h1 {
+    font-size: 32px;
+    margin: 20px 0;
+  }
 }
 
 .setting-part {
   background: var(--background);
+  transition: all ease .3s;
   display: flex;
   flex-direction: column;
+  margin: 16px;
 
   h4 {
+    font-size: 20px;
+    margin: 12px 0;
     padding: 0 16px;
+  }
+}
+</style>
+
+<style lang="scss">
+.view-settings {
+  .setting-item {
+    padding: 0 16px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all ease .3s;
+
+    &:hover {
+      background: var(--hover);
+      .setting-item-placeholder {
+        color: var(--main);
+      }
+    }
+
+    &.setting-go {
+      cursor: pointer;
+    }
+  }
+
+  .setting-item-placeholder {
+    color: var(--font-color-regular);
   }
 }
 </style>

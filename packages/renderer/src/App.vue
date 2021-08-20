@@ -26,6 +26,7 @@ export default defineComponent({
 body {
   margin: 0;
   background: var(--background);
+  transition: all ease .3s;
 }
 
 #app {
@@ -33,6 +34,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--font-color);
+  transition: all ease .3s;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -41,6 +43,7 @@ body {
   & > main {
     flex: 1;
     background: var(--background-gray);
+    transition: all ease .3s;
     height: 100%;
     overflow: hidden;
   }
