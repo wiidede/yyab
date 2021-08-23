@@ -7,6 +7,7 @@
   },
   "main": "packages/main/dist/index.cjs",
   "scripts": {
+    "dev": "vite packages/renderer --host",
     "build": "node scripts/build.js",
     "precompile": "cross-env MODE=production yarn run build",
     "compile": "electron-builder build --config electron-builder.config.js --dir --config.asar=false",
