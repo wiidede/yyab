@@ -10,16 +10,11 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue';
-import {useRouter} from 'vue-router';
+import {navTo} from '/@/use/utils';
 
 export default defineComponent({
   name: 'Application',
   setup() {
-    const router = useRouter();
-    const navTo = (path: string) => {
-      router.push(path);
-    };
-
     return {navTo};
   },
 });

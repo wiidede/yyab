@@ -23,6 +23,10 @@ export default defineComponent({
 <style lang="scss">
 @import "./style/index";
 
+html {
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   background: var(--background);
@@ -34,7 +38,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--font-color);
-  transition: all ease .3s;
+  transition: color ease .3s;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -46,6 +50,10 @@ body {
     transition: all ease .3s;
     height: 100%;
     overflow: hidden;
+
+    & > div {
+      height: 100vh;
+    }
   }
 }
 </style>

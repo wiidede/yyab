@@ -38,9 +38,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .view-settings {
-  padding: 12px;
   box-sizing: border-box;
-  min-height: 100vh;
   font-family: baloo_2regular, sans-serif;
   font-size: 18px;
   user-select: none;
@@ -48,7 +46,7 @@ export default defineComponent({
 
   h1 {
     font-size: 32px;
-    margin: 20px 0;
+    margin: 20px 16px;
   }
 }
 

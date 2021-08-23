@@ -1,26 +1,45 @@
 <template>
-  <h2 id="versions">
-    Lib versions
-  </h2>
-  <div>
-    <ul aria-labelledby="versions">
-      <li
-        v-for="(version, lib) in versions"
-        :key="lib"
+  <div class="view-about">
+    <go-back-bar class="go-back-bar" />
+    <el-scrollbar>
+      <div class="about-application">
+        <div>yyab</div>
+        <h2>yyab</h2>
+        <div>Learn English by English</div>
+        <div>0.0.1</div>
+      </div>
+      <div
+        v-if="Object.keys(versions).length"
+        class="about-lib"
       >
-        <strong>{{ lib }}</strong>: v{{ version }}
-      </li>
-    </ul>
+        <h2 id="versions">
+          Lib versions
+        </h2>
+        <div>
+          <ul aria-labelledby="versions">
+            <li
+              v-for="(version, lib) in versions"
+              :key="lib"
+            >
+              <strong>{{ lib }}</strong>: v{{ version }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </el-scrollbar>
   </div>
 </template>
 
 <script lang="ts">
+import GoBackBar from '/@/components/GoBackBar.vue';
 import {defineComponent} from 'vue';
 import {useElectron} from '/@/use/electron';
+
 export default defineComponent({
   name: 'About',
+  components: {GoBackBar},
   setup() {
-    const {versions} = useElectron();
+    const {versions} = useElectron() || [];
     // It makes no sense to make "versions" reactive
     return {versions};
   },
@@ -28,9 +47,21 @@ export default defineComponent({
 </script>
 
 <style scoped>
-div {
-  text-align: left;
-  display: grid;
-  justify-content: center;
+.view-about {
+  text-align: center;
+}
+
+.go-back-bar {
+  margin: 16px;
+}
+
+.about-application {
+  margin: 16px;
+  background: var(--background);
+}
+
+.about-lib {
+  margin: 16px;
+  background: var(--background);
 }
 </style>

@@ -25,8 +25,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import {defineComponent, ref, reactive, watchEffect} from 'vue';
+import type {themeMap} from '../../../types/settings';
 
 export default defineComponent({
   name: 'Appearance',
@@ -36,15 +37,16 @@ export default defineComponent({
     const colorActive = ref('#FF9A76');
     const colorList = reactive(['#FF9A76', '#FF9292', '#42b983', '#7579E7', '#19D3DA', '#056676', '#835858']);
     //const customColor = ref('');
-    const changeColor = (color) => {
+    const changeColor = (color: string) => {
       colorActive.value = color;
       document.documentElement.style.setProperty('--main', color);
+      document.documentElement.style.setProperty('--select', `${color}60`);
       document.documentElement.style.setProperty('--hover', `${color}20`);
     };
-    const changeTheme = (theme) => {
+    const changeTheme = (theme: string) => {
       document.documentElement.setAttribute('data-theme', theme);
     };
-    const themeMap = {
+    const themeMap: themeMap = {
       'Light': 'light',
       'Dark': 'dark',
       'Follow System': systemDefaultTheme,

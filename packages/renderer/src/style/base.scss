@@ -5,3 +5,11 @@
   font-weight: normal;
   font-style: normal;
 }
+
+::selection {
+  background-color: var(--select);
+}
+
+li {
+  list-style: '';
+}

@@ -29,6 +29,7 @@
 <script lang="ts">
 import {defineComponent, ref, reactive, watchEffect} from 'vue';
 import {useRouter} from 'vue-router';
+import {navTo} from '/@/use/utils';
 
 export default defineComponent({
   name: 'AppNavigation',
@@ -44,9 +45,6 @@ export default defineComponent({
     };
 
     const router = useRouter();
-    const navTo = (path: string) => {
-      router.push(path);
-    };
     watchEffect(() => {
       navs.forEach(nav => {
         nav.active = nav.path === '/' ?
