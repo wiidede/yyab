@@ -26,11 +26,13 @@
 </template>
 
 <script lang="ts">
+import {ElRadioButton, ElRadioGroup} from 'element-plus';
 import {defineComponent, ref, reactive, watchEffect} from 'vue';
 import type {themeMap} from '../../../types/settings';
 
 export default defineComponent({
   name: 'Appearance',
+  components: {ElRadioButton, ElRadioGroup},
   setup() {
     const theme = ref('Light');
     let systemDefaultTheme = 'light';

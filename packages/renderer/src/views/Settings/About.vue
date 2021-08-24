@@ -34,13 +34,14 @@
 </template>
 
 <script lang="ts">
+import {ElScrollbar} from 'element-plus';
 import GoBackBar from '/@/components/GoBackBar.vue';
 import {defineComponent} from 'vue';
 import {useElectron} from '/@/use/electron';
 
 export default defineComponent({
   name: 'About',
-  components: {GoBackBar},
+  components: {ElScrollbar, GoBackBar},
   setup() {
     const {versions} = useElectron() || [];
     // It makes no sense to make "versions" reactive

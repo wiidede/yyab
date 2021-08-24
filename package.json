@@ -46,13 +46,12 @@
     "spectron": "^15.0.0",
     "typescript": "^4.3.5",
     "vite": "^2.4.4",
-    "vite-plugin-style-import": "^1.1.1",
     "vue-tsc": "^0.2.3"
   },
   "dependencies": {
     "@typescript-eslint/parser": "^4.29.2",
     "electron-updater": "^4.4.5",
-    "element-plus": "^1.0.2-beta.70",
+    "element-plus": "^1.1.0-beta.1",
     "vue": "^3.2.2",
     "vue-router": "^4.0.11"
   },

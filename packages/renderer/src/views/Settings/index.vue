@@ -16,12 +16,14 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue';
+import {ElScrollbar} from 'element-plus';
 import Appearance from './Appearance.vue';
 import Application from './Application.vue';
 
 export default defineComponent({
   name: 'Settings',
   components: {
+    ElScrollbar,
     Appearance,
     Application,
   },
