@@ -1,7 +1,10 @@
 <template>
   <div class="view-about">
-    <go-back-bar class="go-back-bar" />
-    <el-scrollbar>
+    <el-scrollbar ref="scrollViewRef">
+      <go-back-bar
+        ref="goBackBarRef"
+        class="go-back-bar"
+      />
       <div class="about-application">
         <div>yyab</div>
         <h2>yyab</h2>
@@ -46,13 +49,17 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .view-about {
+  font-family: baloo_2regular, sans-serif;
   text-align: center;
 }
 
 .go-back-bar {
   margin: 16px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .about-application {
