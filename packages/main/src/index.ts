@@ -33,6 +33,7 @@ const createWindow = async () => {
       preload: join(__dirname, '../../preload/dist/index.cjs'),
       contextIsolation: import.meta.env.MODE !== 'test',   // Spectron tests can't work with contextIsolation: true
       enableRemoteModule: import.meta.env.MODE === 'test', // Spectron tests can't work with enableRemoteModule: false
+      spellcheck: false,
     },
   });
 
