@@ -9,22 +9,22 @@
         <div>yyab</div>
         <h2>yyab</h2>
         <div>Learn English by English</div>
-        <div>0.0.1</div>
+        <div>{{ version }}</div>
       </div>
       <div
-        v-if="Object.keys(versions).length"
+        v-if="Object.keys(libs).length"
         class="about-lib"
       >
         <h2 id="versions">
           Lib versions
         </h2>
         <div>
-          <ul aria-labelledby="versions">
+          <ul aria-labelledby="libs">
             <li
-              v-for="(version, lib) in versions"
+              v-for="(libVersion, lib) in libs"
               :key="lib"
             >
-              <strong>{{ lib }}</strong>: v{{ version }}
+              <strong>{{ lib }}</strong>: v{{ libVersion }}
             </li>
           </ul>
         </div>
@@ -36,16 +36,26 @@
 <script lang="ts">
 import {ElScrollbar} from 'element-plus';
 import GoBackBar from '/@/components/GoBackBar.vue';
-import {defineComponent} from 'vue';
+import {defineComponent, computed} from 'vue';
 import {useElectron} from '/@/use/electron';
+import {useStore} from '/@/store';
 
 export default defineComponent({
   name: 'About',
   components: {ElScrollbar, GoBackBar},
   setup() {
-    const {versions} = useElectron() || [];
+    const store = useStore();
+    let libs = {};
+    if (useElectron()) {
+      const {versions} = useElectron();
+      libs = versions || {};
+    }
     // It makes no sense to make "versions" reactive
-    return {versions};
+
+    return {
+      libs,
+      version: computed(() => store.state.version),
+    };
   },
 });
 </script>

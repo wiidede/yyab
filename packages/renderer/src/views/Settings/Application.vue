@@ -21,22 +21,4 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.color-list {
-  display: flex;
-  align-items: center;
-}
-
-.color {
-  width: 24px;
-  height: 24px;
-  border-radius: 100%;
-  cursor: pointer;
-  margin: 0 8px;
-  transition: all ease .3s;
-
-  &.active {
-    width: 32px;
-    height: 32px;
-  }
-}
 </style>

@@ -54,7 +54,7 @@ export default defineComponent({
 
 .setting-part {
   background: var(--background);
-  transition: all ease .3s;
+  transition: background-color ease .3s;
   display: flex;
   flex-direction: column;
   margin: 16px;
@@ -64,18 +64,14 @@ export default defineComponent({
     margin: 12px 0;
     padding: 0 16px;
   }
-}
-</style>
 
-<style lang="scss">
-.view-settings {
-  .setting-item {
+  :deep(.setting-item) {
     padding: 0 16px;
     min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: all ease .3s;
+    transition: background-color ease .3s, color ease .3s;
 
     &:hover {
       background: var(--hover);
@@ -87,10 +83,11 @@ export default defineComponent({
     &.setting-go {
       cursor: pointer;
     }
-  }
 
-  .setting-item-placeholder {
-    color: var(--font-color-regular);
+    .setting-item-placeholder {
+      color: var(--font-color-regular);
+      transition: color ease .3s;
+    }
   }
 }
 </style>

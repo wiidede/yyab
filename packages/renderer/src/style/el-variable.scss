@@ -64,7 +64,7 @@
   --el-disabled-border-base: var(--el-border-color-light);
   --el-transition-duration: 0.3s;
   --el-transition-duration-fast: 0.2s;
-  --el-transition-function-ease-in-out-bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --el-transition-function-ease-in-out-bezier: ease; //cubic-bezier(0.645, 0.045, 0.355, 1);
   --el-transition-function-fast-bezier: cubic-bezier(0.23, 1, 0.32, 1);
   --el-transition-all: all var(--el-transition-duration) var(--el-transition-function-ease-in-out-bezier);
   --el-transition-fade: opacity var(--el-transition-duration) var(--el-transition-function-fast-bezier);

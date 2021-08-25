@@ -64,7 +64,7 @@ nav {
   flex-direction: column;
   font-size: 16px;
   width: 120px;
-  transition: all ease .3s;
+  transition: width ease .3s;
   font-family: baloo_2regular, sans-serif;
   user-select: none;
 
@@ -73,7 +73,7 @@ nav {
     align-items: center;
     width: 100%;
     cursor: pointer;
-    transition: all ease .3s;
+    transition: background-color ease .3s, color ease .3s;
     padding: 8px 0;
 
     &:hover {
@@ -96,7 +96,7 @@ nav {
     display: flex;
     align-items: center;
     cursor: pointer;
-    transition: all ease .3s;
+    transition: color ease .3s;
 
     &:hover {
       color: var(--main);

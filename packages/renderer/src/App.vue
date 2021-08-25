@@ -29,7 +29,7 @@ html {
 body {
   margin: 0;
   background: var(--background);
-  transition: all ease .3s;
+  transition: background-color ease .3s;
 }
 
 #app {
@@ -46,7 +46,7 @@ body {
   & > main {
     flex: 1;
     background: var(--background-gray);
-    transition: all ease .3s;
+    transition: background-color ease .3s;
     height: 100%;
     overflow: hidden;
 
