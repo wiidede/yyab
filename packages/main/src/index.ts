@@ -1,4 +1,4 @@
-import {app, BrowserWindow} from 'electron';
+import {app, BrowserWindow, ipcMain, nativeTheme } from 'electron';
 import {join} from 'path';
 import {URL} from 'url';
 
@@ -62,6 +62,18 @@ const createWindow = async () => {
 
 
   await mainWindow.loadURL(pageUrl);
+
+  ipcMain.handle('dark-mode:light', () => {
+    nativeTheme.themeSource = 'light';
+  });
+
+  ipcMain.handle('dark-mode:dark', () => {
+    nativeTheme.themeSource = 'dark';
+  });
+
+  ipcMain.handle('dark-mode:system', () => {
+    nativeTheme.themeSource = 'system';
+  });
 };
 
 

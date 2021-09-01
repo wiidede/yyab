@@ -79,12 +79,15 @@ export default defineComponent({
       }
     };
 
-    watchEffect(() => {
+    watchEffect(async () => {
       if (theme.value === 'Follow System') {
+        await window.darkMode.system();
         handleColorSchemeChange(mediaQueryListDark);
         mediaQueryListDark.addEventListener('change', handleColorSchemeChange);
       } else {
-        changeTheme(themeMap[theme.value]);
+        const themeValue = themeMap[theme.value];
+        changeTheme(themeValue);
+        await window.darkMode[themeValue]();
         mediaQueryListDark.removeEventListener('change', handleColorSchemeChange);
       }
     });
