@@ -1,56 +1,55 @@
 <template>
-  <img
-    alt="Vue logo"
-    src="../../assets/logo.svg"
-    width="300"
-  >
-  <p>
-    For a guide and recipes on how to configure / customize this project,<br>
-    check out the
-    <a
-      href="https://github.com/cawa-93/vite-electron-builder"
-      rel="noopener"
-      target="_blank"
-    >vite-electron-builder documentation</a>.
-  </p>
-
-  <p>
-    <a
-      href="https://vitejs.dev/guide/features.html"
-      target="_blank"
-    >Vite Documentation</a> |
-    <a
-      href="https://v3.vuejs.org/"
-      target="_blank"
-    >Vue 3 Documentation</a>
-  </p>
-
-  <hr>
-  <button @click="count++">
-    count is: {{ count }}
-  </button>
-  <p>
-    Edit
-    <code>renderer/components/Home.vue</code> to test hot module replacement.
-  </p>
+  <div class="bottom-nav-bar">
+    <i
+      class="iconfont"
+      :class="navigationShow ? 'icon-forbid-2-line' : 'icon-checkbox-blank-circle-line'"
+      @click="toggleNavigationShow"
+    />
+  </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from 'vue';
+import {computed, defineComponent, onActivated} from 'vue';
+import {useStore} from '/@/store';
 
 export default defineComponent({
   name: 'HelloWorld',
   setup() {
-    const count = ref(0);
+    const store = useStore();
 
-    return {count};
+    const navigationShow = computed(() => store.state.application.navigationShow);
+    const toggleNavigationShow = () => store.commit('application/toggleNavigationShow');
+
+    onActivated(() => {
+      store.commit('application/setNavigationShow', false);
+    });
+
+    return {navigationShow, toggleNavigationShow};
   },
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-a {
-  color: #42b983;
+<style lang="scss" scoped>
+.bottom-nav-bar {
+  background: var(--background);
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+
+  i {
+    transition: color ease .3s;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0 4px;
+
+    &:hover {
+      color: var(--main);
+    }
+  }
 }
 </style>

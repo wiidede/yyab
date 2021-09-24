@@ -52,7 +52,6 @@ export default defineComponent({
     const setColor = (color: string): void => store.commit('settings/setColor', color);
     watchEffect(() => {
       const color = colorActive.value;
-      console.log(color);
       document.documentElement.style.setProperty('--main', color);
       document.documentElement.style.setProperty('--select', `${color}60`);
       document.documentElement.style.setProperty('--hover', `${color}20`);

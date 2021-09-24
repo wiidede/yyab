@@ -5,15 +5,30 @@
         ref="goBackBarRef"
         class="go-back-bar"
       />
-      <div class="about-application">
+      <div class="about-item about-application">
         <div>yyab</div>
         <h2>yyab</h2>
         <div>Learn English by English</div>
         <div>{{ version }}</div>
       </div>
+      <div class="about-item about-vite">
+        <img
+          alt="Vue logo"
+          src="../../../assets/logo.svg"
+          width="100"
+        >
+        <p>
+          Powered by
+          <a
+            href="https://github.com/cawa-93/vite-electron-builder"
+            rel="noopener"
+            target="_blank"
+          >vite-electron-builder</a>.
+        </p>
+      </div>
       <div
         v-if="Object.keys(libs).length"
-        class="about-lib"
+        class="about-item about-lib"
       >
         <h2 id="versions">
           Lib versions
@@ -62,6 +77,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .view-about {
+  height: 100%;
   font-family: baloo_2regular, sans-serif;
   text-align: center;
 }
@@ -73,13 +89,9 @@ export default defineComponent({
   top: 0;
 }
 
-.about-application {
+.about-item {
   margin: 16px;
   background: var(--background);
-}
-
-.about-lib {
-  margin: 16px;
-  background: var(--background);
+  padding: 12px 0;
 }
 </style>

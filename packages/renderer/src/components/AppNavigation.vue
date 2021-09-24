@@ -1,5 +1,5 @@
 <template>
-  <nav :class="{collapse: isCollapse}">
+  <nav :class="{collapse: isCollapse, 'nav-hidden': !navigationShow}">
     <div
       v-for="(nav, index) in navs"
       :key="`nav${index}`"
@@ -27,14 +27,18 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref, reactive, watchEffect} from 'vue';
+import {defineComponent, ref, reactive, watchEffect, computed} from 'vue';
 import {useRouter} from 'vue-router';
 import {navTo} from '/@/use/utils';
+import {useStore} from '/@/store';
 
 export default defineComponent({
   name: 'AppNavigation',
   setup() {
+    const store = useStore();
+
     let isCollapse = ref(false);
+    const navigationShow = computed(() => store.state.application.navigationShow);
     const navs = reactive([
       {name: 'Home', path: '/', active: false, icon: 'icon-home-line', iconActive: 'icon-home-fill'},
       {name: 'Lexicon', path: '/lexicon', active: false, icon: 'icon-book-line', iconActive: 'icon-book-fill'},
@@ -53,7 +57,7 @@ export default defineComponent({
       });
     });
 
-    return {isCollapse, navs, handleCollapse, navTo};
+    return {isCollapse, navigationShow, navs, handleCollapse, navTo};
   },
 });
 </script>
@@ -110,6 +114,10 @@ nav {
 
   &.collapse {
     width: 42px;
+  }
+
+  &.nav-hidden {
+    width: 0;
   }
 }
 </style>

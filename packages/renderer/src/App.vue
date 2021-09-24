@@ -49,10 +49,7 @@ body {
     transition: background-color ease .3s;
     height: 100%;
     overflow: hidden;
-
-    & > div {
-      height: 100vh;
-    }
+    position: relative;
   }
 }
 </style>

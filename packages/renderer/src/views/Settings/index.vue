@@ -40,6 +40,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .view-settings {
+  height: 100%;
   box-sizing: border-box;
   font-family: baloo_2regular, sans-serif;
   font-size: 18px;
